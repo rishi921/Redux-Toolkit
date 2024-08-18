@@ -1,13 +1,11 @@
-import contactsSlice from "../slices/contactsSlice";
 import { configureStore } from "@reduxjs/toolkit";
-
-const allReducers = {
-    contacts: contactsSlice.reducer
-}
+import contactsReducer from "../slices/contactsSlice"; // Ensure this is the correct path
 
 const store = configureStore({
-    reducer: allReducers,
+    reducer: {
+        contacts: contactsReducer // The key should match the state key used in useSelector
+    },
     devTools: process.env.NODE_ENV !== 'production'
-})
+});
 
-export default store
+export default store;
